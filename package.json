@@ -1,0 +1,28 @@
+{
+  "name": "CollageMaker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "watch": "webpack --mode development --watch --watch-poll --progress --colors --display-error-details",
+    "live": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "Hennadii Kolesnyk",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "1.6.9",
+    "angular-resource": "^1.6.9",
+    "immutable": "^3.8.2",
+    "ng-redux": "^3.5.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "raw-loader": "^1.0.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  }
+}

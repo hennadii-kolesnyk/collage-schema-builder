@@ -1,0 +1,23 @@
+.schema {
+    position:relative;
+}
+
+.schema__cell {
+    background-color:#eaeaf0;
+    border:1px solid #dedee4;
+    cursor:pointer;
+    position:absolute;
+}
+
+.ui-selectable .ui-selectee {
+    background: #eaeaf0;
+}
+.ui-selectable .ui-unselecting {
+    background: #8392ff;
+}
+.ui-selectable .ui-selecting {
+    background: #8392ff;
+}
+.ui-selectable .ui-selected {
+    background: #8392ff;
+}
