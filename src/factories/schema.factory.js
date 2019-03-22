@@ -4,6 +4,10 @@ class SchemaResource {
             {
                 update: {
                     method: 'PUT'
+                },
+                reset: {
+                    method: 'POST',
+                    url: 'https://mycommunityprint.local/api/schemas/reset',
                 }
             }
         );

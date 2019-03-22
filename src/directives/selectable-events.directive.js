@@ -8,9 +8,15 @@ class SelectableEvents {
                     if (e.preventDefault) e.preventDefault();
 
                     let selectableList = scope.$eval(attr.selectableList);
-                    let selected = !selectableList? [] : element.find('.ui-selected').map(function() {
-                        return selectableList[$(this).index()];
-                    }).get();
+
+                    let selected = [];
+                    if (selectableList) {
+                        element.find('.ui-selected').each(function() {
+                            selected[$(this).index()] = selectableList[$(this).index()];
+                        });
+                    }
+
+                    selected = selected.filter(Boolean);
 
                     let fn = $parse(callback);
                     scope.$apply(() => {

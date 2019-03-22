@@ -41,21 +41,18 @@ class CSBuilderController {
 
             let posMax = this.unionable[this.unionable.length - 1];
 
-            let unionItem = {
+            let item = {
+                'schema_id': this.schemaId,
                 'width': (posMax.pos_x + posMax.width) - posMin.pos_x,
                 'height': (posMax.pos_y + posMax.height) - posMin.pos_y,
                 'pos_x': posMin.pos_x,
                 'pos_y': posMin.pos_y
             };
 
-            let removable = this.unionable.map(function (item) {
-                return item.id;
-            });
+            let items = this.schema.items
+                .filter(x => !this.unionable.includes(x));
 
-            let items = this.removeById(removable);
-            unionItem.schema_id = this.schemaId;
-            unionItem.id = removable[0];
-            items.push(unionItem);
+            items.push(item);
 
             this.setItems(items);
 
@@ -65,21 +62,16 @@ class CSBuilderController {
 
     update() {
         this.resource.update({id:this.schemaId}, this.schema).$promise
-            .then(data => {
-                console.log(data);
+            .then(schema => {
+                console.log(schema);
             })
     }
 
-    removeById(removable) {
-        let items = angular.copy(this.schema.items);
-        for (let i = 0; i < items.length; i++) {
-            let obj = items[i];
-            if (removable.indexOf(obj.id) !== -1) {
-                items.splice(i, 1);
-                i--;
-            }
-        }
-        return items;
+    reset() {
+        this.resource.reset({id:this.schemaId}).$promise
+            .then(schema => {
+                this.initState(schema);
+            })
     }
 
     calculateScaleCoefficient() {
