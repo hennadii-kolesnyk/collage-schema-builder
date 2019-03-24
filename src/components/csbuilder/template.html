@@ -1,23 +1,38 @@
-<div class="container">
-    <div class="schema">
-        <div ng-style="{
+<div id="cs-builder">
+    <nav class="navbar navbar-default navbar-lower" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">CS Builder</a>
+            </div>
+            <div class="navbar-form navbar-center">
+                <button type="button" class="btn btn-success" ng-click="$ctrl.union()" ng-disabled="$ctrl.unionDisabled">Union</button>
+                <button type="button" class="btn btn-default" ng-click="$ctrl.undo()">Undo</button>
+                <button type="button" class="btn btn-default" ng-click="$ctrl.redo()">Redo</button>
+                <button type="button" class="btn btn-success" ng-click="$ctrl.update()">Update</button>
+                <button type="button" class="btn btn-danger" ng-click="$ctrl.reset()">Reset</button>
+            </div>
+        </div>
+    </nav>
+    <div class="divide-nav">
+        <div class="container">
+            <div class="row">
+                <div class="schema">
+                    <div class="schema__cell-group" ng-style="{
                              'height': $ctrl.schema.height * $ctrl.scaleCoefficient + 'px',
                              'width': $ctrl.schema.width * $ctrl.scaleCoefficient + 'px'
                         }" selectable selectable-list="$ctrl.schema.items" selectable-events="{selected:'$ctrl.selectedEvent($event, $ui, $selected, $list)'}">
-            <div class="schema__cell"
-                 ng-repeat="cell in $ctrl.schema.items"
-                 ng-style="{
+                        <div class="schema__cell"
+                             ng-repeat="cell in $ctrl.schema.items"
+                             ng-style="{
                                    'top':  cell.pos_y * $ctrl.cellHeight * $ctrl.scaleCoefficient + 'px',
                                    'left': cell.pos_x * $ctrl.cellWidth * $ctrl.scaleCoefficient + 'px',
                                    'height': cell.height * $ctrl.cellHeight * $ctrl.scaleCoefficient + 'px',
                                    'width': cell.width * $ctrl.cellWidth * $ctrl.scaleCoefficient + 'px'
                                  }">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <input type="button" ng-click="$ctrl.union()" ng-disabled="$ctrl.unionDisabled" value="Union">
-    <input type="button" ng-click="$ctrl.undo()" value="Undo">
-    <input type="button" ng-click="$ctrl.redo()" value="Redo">
-    <input type="button" ng-click="$ctrl.update()" value="Update">
-    <input type="button" ng-click="$ctrl.reset()" value="Reset">
 </div>

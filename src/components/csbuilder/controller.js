@@ -75,7 +75,7 @@ class CSBuilderController {
     }
 
     calculateScaleCoefficient() {
-        const schemaContainerWidth = 400;
+        const schemaContainerWidth = document.getElementById('cs-builder').clientWidth;
 
         this.cellWidth = this.schema.width / this.schema.cells_x;
         this.cellHeight = this.schema.height / this.schema.cells_y;

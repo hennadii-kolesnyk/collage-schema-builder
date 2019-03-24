@@ -19,4 +19,6 @@ app.config(['$interpolateProvider', ($interpolateProvider) => {
     $interpolateProvider.endSymbol('%>');
 }]);
 
+app.constant('ApiEndpointUrl', 'https://mycommunityprint.local');
+
 

@@ -1,19 +1,19 @@
 class SchemaResource {
-    static getInstance($resource) {
-        return $resource('https://mycommunityprint.local/api/schemas/:id', {id:'@_id'},
+    static getInstance($resource, host) {
+        return $resource(`${host}/api/schemas/:id`, {id:'@_id'},
             {
                 update: {
                     method: 'PUT'
                 },
                 reset: {
                     method: 'POST',
-                    url: 'https://mycommunityprint.local/api/schemas/reset',
+                    url: `${host}/api/schemas/reset`,
                 }
             }
         );
     }
 }
 
-SchemaResource.getInstance.$inject = ['$resource'];
+SchemaResource.getInstance.$inject = ['$resource', 'ApiEndpointUrl'];
 
 export default SchemaResource;

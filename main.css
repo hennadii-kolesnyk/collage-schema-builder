@@ -2,6 +2,13 @@
     position:relative;
 }
 
+/*.schema__cell-group {
+    left:50%;
+    top: 50%;
+    position:absolute;
+    transform: translate(-50%);
+}*/
+
 .schema__cell {
     background-color:#eaeaf0;
     border:1px solid #dedee4;
@@ -20,4 +27,9 @@
 }
 .ui-selectable .ui-selected {
     background: #8392ff;
+}
+.ui-selectable-helper {
+    position: absolute;
+    z-index: 100;
+    border: 6px dotted #fbffb8;
 }
